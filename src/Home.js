@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import getTweets from './actions/getTweets';
 
-export default class Home extends Component {
+
+class Home extends Component {
+
+   
     render() {
         return (
             <div>
@@ -9,3 +14,5 @@ export default class Home extends Component {
         )
     }
 }
+
+export default connect(null,{getTweets})(Home)
