@@ -5,14 +5,21 @@ import getTweets from './actions/getTweets';
 
 class Home extends Component {
 
-   
+
     render() {
         return (
             <div>
-                
+                <ul>
+                    {this.props.tweets.map((item, index)=><li>{item.body}</li>)}
+                </ul>
             </div>
         )
     }
 }
 
-export default connect(null,{getTweets})(Home)
+const mstp = (state) => {
+    return {
+        tweets: state.tweets
+    }
+}
+export default connect(mstp, { getTweets })(Home)

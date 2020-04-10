@@ -18,7 +18,6 @@ class AddTweet extends Component {
 
     handleSubmit=(e)=>{
         e.preventDefault()
-        console.log(this.state)
         this.props.addTweet(this.state)
     }
     render() {
@@ -33,4 +32,10 @@ class AddTweet extends Component {
     }
 }
 
-export default connect (null, {addTweet})(AddTweet)
+const mdtp = (dispatch, ownProps) => {
+    return {
+        addTweet: tweet => dispatch(addTweet(tweet, ownProps)),
+    };
+ };
+
+export default connect (null, mdtp)(AddTweet)
